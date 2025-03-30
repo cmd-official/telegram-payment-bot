@@ -30,7 +30,9 @@ await bot.send_invoice(
 
 await bot.answer_pre_checkout_query(pre_checkout_query.id, ok=True)
 
-@dp.message_handler(content_types=types.ContentType.SUCCESSFUL_PAYMENT) async def successful_payment(message: types.Message): await message.answer("✅ Оплата прошла успешно!") with open(FILE_PATH, "rb") as file: await bot.send_document(message.chat.id, file)
+file = open(FILE_PATH, "rb")
+await message.answer("✅ Оплата прошла успешно!")
+await bot.send_document(message.chat.id, file)
 
 if name == "main": executor.start_polling(dp, skip_updates=True)
 

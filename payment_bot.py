@@ -9,7 +9,9 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token="ТОКЕН", parse_mode="HTML") # Замените "ТОКЕН" на ваш токен
 dp = Dispatcher(bot)
 
-@dp.message_handler(commands=['start']) async def start(message: types.Message): await message.answer(" Нажми на кнопку ниже, чтобы оплатить и получить файл.", reply_markup=types.InlineKeyboardMarkup().add( types.InlineKeyboardButton("💳 Оплатить", callback_data="buy") ))
+markup = types.InlineKeyboardMarkup()
+markup.add(types.InlineKeyboardButton("Оплатить", callback_data="buy"))
+await message.answer("Нажми на кнопку ниже, чтобы оплатить и получить файл.", reply_markup=markup)
 
 @dp.callback_query_handler(lambda c: c.data == "buy") async def buy(call: types.CallbackQuery): prices = [LabeledPrice(label="Файл", amount=500 * 100)]  # Цена в копейках (500 RUB) await bot.send_invoice( chat_id=call.message.chat.id, title="Покупка файла", description="После оплаты вы получите файл.", payload="file_purchase", provider_token=STRIPE_PROVIDER_TOKEN, currency="rub", prices=prices, start_parameter="purchase_file", provider_data=None, need_email=True, need_phone_number=False, )
 

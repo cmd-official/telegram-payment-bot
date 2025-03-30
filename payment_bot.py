@@ -28,7 +28,7 @@ await bot.send_invoice(
     is_flexible=False #Не указан, поэтому добавляю
 )
 
-@dp.pre_checkout_query_handler(lambda query: True) async def checkout(pre_checkout_query: PreCheckoutQuery): await bot.answer_pre_checkout_query(pre_checkout_query.id, ok=True)
+await bot.answer_pre_checkout_query(pre_checkout_query.id, ok=True)
 
 @dp.message_handler(content_types=types.ContentType.SUCCESSFUL_PAYMENT) async def successful_payment(message: types.Message): await message.answer("✅ Оплата прошла успешно!") with open(FILE_PATH, "rb") as file: await bot.send_document(message.chat.id, file)
 

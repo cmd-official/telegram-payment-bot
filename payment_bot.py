@@ -11,7 +11,7 @@ dp = Dispatcher(bot)
 
 markup = types.InlineKeyboardMarkup()
 markup.add(types.InlineKeyboardButton("Оплатить", callback_data="buy"))
-await message.answer("Нажми на кнопку ниже, чтобы оплатить и получить файл.", reply_markup=markup)
+ await message.answer("Нажми на кнопку ниже, чтобы оплатить и получить файл.", reply_markup=markup)
 
 await bot.send_invoice(
     chat_id=call.message.chat.id,

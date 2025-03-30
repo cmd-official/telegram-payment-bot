@@ -5,7 +5,9 @@ import logging
 
 TOKEN = "8117246169:AAESfMHEFdkF-EAkKVZVIqpMjpK56vPbBBA"  # Токен бота из BotFather STRIPE_PROVIDER_TOKEN = "sk_test_51R8OCxPOgO9x9v463D9ZwrzHAVlc0Jj3yLQIx4KOW6qHJ4pwaEj0ZvT8hWaBPy9AMt5W3DvgfqvkG4Z77BOBnLMa00yH5kwfSF"  # Сюда вставь Secret Key из Stripe FILE_PATH = "pay_bot.txt"  # Файл, который бот отправит после оплаты
 
-logging.basicConfig(level=logging.INFO) bot = Bot(token=TOKEN, parse_mode="HTML") dp = Dispatcher(bot)
+logging.basicConfig(level=logging.INFO)
+bot = Bot(token="ТОКЕН", parse_mode="HTML") # Замените "ТОКЕН" на ваш токен
+dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start']) async def start(message: types.Message): await message.answer(" Нажми на кнопку ниже, чтобы оплатить и получить файл.", reply_markup=types.InlineKeyboardMarkup().add( types.InlineKeyboardButton("💳 Оплатить", callback_data="buy") ))
 

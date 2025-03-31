@@ -3,8 +3,8 @@ from aiogram.types import LabeledPrice, PreCheckoutQuery
 from aiogram.utils import executor
 import logging
 
-TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"  # Токен бота из BotFather
-STRIPE_PROVIDER_TOKEN = "sk_live_YOUR_SECRET_KEY"  # Сюда вставь Secret Key из Stripe
+TOKEN = "8117246169:AAESfMHEFdkF-EAkKVZVIqpMjpK56vPbBBA"  # Токен бота из BotFather
+STRIPE_PROVIDER_TOKEN = "sk_test_51R8OCxPOgO9x9v463D9ZwrzHAVlc0Jj3yLQIx4KOW6qHJ4pwaEj0ZvT8hWaBPy9AMt5W3DvgfqvkG4Z77BOBnLMa00yH5kwfSF"  # Сюда вставь Secret Key из Stripe
 FILE_PATH = "file.pdf"  # Файл, который бот отправит после оплаты
 
 logging.basicConfig(level=logging.INFO)

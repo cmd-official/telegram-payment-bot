@@ -2,9 +2,10 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.types import LabeledPrice, PreCheckoutQuery
 from aiogram.utils import executor
 import logging
+import os
 
-TOKEN = "8117246169:AAESfMHEFdkF-EAkKVZVIqpMjpK56vPbBBA"  # Токен бота из BotFather
-STRIPE_PROVIDER_TOKEN = "sk_test_51R8OCxPOgO9x9v463D9ZwrzHAVlc0Jj3yLQIx4KOW6qHJ4pwaEj0ZvT8hWaBPy9AMt5W3DvgfqvkG4Z77BOBnLMa00yH5kwfSF"  # Сюда вставь Secret Key из Stripe
+TOKEN = os.getenv("TOKEN")  # Токен бота из BotFather
+STRIPE_PROVIDER_TOKEN = os.getenv("STRIPE_PROVIDER_TOKEN")  # API-ключ Stripe
 FILE_PATH = "file.pdf"  # Файл, который бот отправит после оплаты
 
 logging.basicConfig(level=logging.INFO)

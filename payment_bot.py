@@ -3,8 +3,8 @@ import requests
 
 app = Flask(__name__)
 
-BOT_TOKEN = 'твой_токен_бота'
-CHAT_ID = 'твой_chat_id'
+BOT_TOKEN = 8117246169:AAESfMHEFdkF-EAkKVZVIqpMjpK56vPbBBA
+CHAT_ID = 7021183974
 
 @app.route('/freekassa', methods=['GET', 'POST'])
 def freekassa_notify():
